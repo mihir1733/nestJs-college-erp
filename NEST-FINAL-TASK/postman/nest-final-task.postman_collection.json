@@ -1,0 +1,1936 @@
+{
+	"info": {
+		"_postman_id": "7a830aeb-f65f-4a7e-bfde-9cb96a7cd798",
+		"name": "nest-final-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29562515"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create-admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesskey",
+								"value": "thisrouteisonlyforadmin",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@example.com\",\n    \"password\":\"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-staff",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"staff1@example.com\",\n    \"password\":\"staff1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "staff creating staff",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mihir@example.com\",\n    \"password\":\"mihir\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-XZ9D+fOs0UNPjWVT5QavEmSLn94\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:49:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only admins have rights to do this.\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "admin creating staff",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mihir@example.com\",\n    \"password\":\"mihir\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-3iujEP17gJdBTeQl0yV6PZ7QxN8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:52:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"65437f788245b941171ce6d6\",\n    \"email\": \"mihir@example.com\",\n    \"role\": \"staff\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get-users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "staff reading users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-XZ9D+fOs0UNPjWVT5QavEmSLn94\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:45:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only admins have rights to do this.\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "admin getting users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "528"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"210-ESFQOKyU0Mr0xkX4HWw8VUO9fO0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:53:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"6541fd6931e879c403ca8e10\",\n        \"email\": \"admin@example.com\",\n        \"role\": \"admin\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NDFmZDY5MzFlODc5YzQwM2NhOGUxMCIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTg5MjIzMjd9.FH7R1RE5ulVjhXpqEqGykC1XNknlnQMMNIiZjNeC7RE\"\n    },\n    {\n        \"_id\": \"6541fe64cd3cb5b089152463\",\n        \"email\": \"niks1@example.com\",\n        \"role\": \"staff\"\n    },\n    {\n        \"_id\": \"654207bffa84a2f884e17f3b\",\n        \"email\": \"sidd@example.com\",\n        \"role\": \"staff\"\n    },\n    {\n        \"_id\": \"65437f788245b941171ce6d6\",\n        \"email\": \"mihir@example.com\",\n        \"role\": \"staff\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "get-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/6544caaab08b4b295fd30c6d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6544caaab08b4b295fd30c6d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "staff reading user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-XZ9D+fOs0UNPjWVT5QavEmSLn94\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:47:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only admins have rights to do this.\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "user not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-/Yq5hWa9szmc8QYvvgY6EdQ9WJE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:54:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "invalid id in param",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793afsdfsd",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793afsdfsd"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-CHrL85ZiYE0LhubjRaM9vMKo2xY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:55:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "admin getting user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/6541fe64cd3cb5b089152463",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"6541fe64cd3cb5b089152463"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4d-DVddluP9tNm4aKl0MFllNj8CnBk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:56:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6541fe64cd3cb5b089152463\",\n    \"email\": \"niks1@example.com\",\n    \"role\": \"staff\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update-user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"sidd1sadadasdasd@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/6544caaab08b4b295fd30c6d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6544caaab08b4b295fd30c6d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "staff updating staff",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mihir1@example.com\",\n    \"password\":\"mihir1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-XZ9D+fOs0UNPjWVT5QavEmSLn94\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:49:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only admins have rights to do this.\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "user not found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mihir1@example.com\",\n    \"password\":\"mihir1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-/Yq5hWa9szmc8QYvvgY6EdQ9WJE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:57:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "invalid id in param",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mihir1@example.com\",\n    \"password\":\"mihir1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/654247b4c6xcvxcvef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6xcvxcvef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-CHrL85ZiYE0LhubjRaM9vMKo2xY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:58:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "admin updating user",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"mihir1@example.com\",\n    \"password\":\"mihir1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/6541fe64cd3cb5b089152463",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"6541fe64cd3cb5b089152463"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-rISiz4U2xZ2ZLZoKQqo4sqW6eQE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:58:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6541fe64cd3cb5b089152463\",\n    \"email\": \"mihir1@example.com\",\n    \"role\": \"staff\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete-user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/6544caaab08b4b295fd30c6d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6544caaab08b4b295fd30c6d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "staff deleting staff",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-XZ9D+fOs0UNPjWVT5QavEmSLn94\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:49:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Only admins have rights to do this.\",\n    \"error\": \"Forbidden\",\n    \"statusCode\": 403\n}"
+						},
+						{
+							"name": "user not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/654247b4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247b4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-/Yq5hWa9szmc8QYvvgY6EdQ9WJE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:59:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user not found\",\n    \"error\": \"Not Found\",\n    \"statusCode\": 404\n}"
+						},
+						{
+							"name": "invalid id in param",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/654247sdfsdb4c6ef4a9de17a793a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"654247sdfsdb4c6ef4a9de17a793a"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-CHrL85ZiYE0LhubjRaM9vMKo2xY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:59:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer\",\n    \"error\": \"Bad Request\",\n    \"statusCode\": 400\n}"
+						},
+						{
+							"name": "admin deleting user",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/6541fe64cd3cb5b089152463",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"6541fe64cd3cb5b089152463"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-rISiz4U2xZ2ZLZoKQqo4sqW6eQE\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 11:00:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"_id\": \"6541fe64cd3cb5b089152463\",\n    \"email\": \"mihir1@example.com\",\n    \"role\": \"staff\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code === 200){",
+									"    pm.environment.set('authToken', pm.response.json().token)",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@example.com\",\n    \"password\":\"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "try to logout with no login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-dGnJzt6gv1nJjX6DJ9RztDWptng\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Nov 2023 10:50:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthorized\",\n    \"statusCode\": 401\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "create-student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"name\": \"stu3\",\n    \"phoneNumber\": 1234567890,\n    \"department\": \"CE\",\n    \"batch\": 2021,\n    \"currentSemester\": 6\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/students",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/students/654b2a5a62d56e02258f3080",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"654b2a5a62d56e02258f3080"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/students",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-student",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currentSemester\":5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/students/654b2a5a62d56e02258f3080",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"654b2a5a62d56e02258f3080"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/students/654b2a5a62d56e02258f3080",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"students",
+								"654b2a5a62d56e02258f3080"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "batches",
+			"item": [
+				{
+					"name": "create-batch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"year\":2021,\n    \"branches\":[\n        {\n            \"name\":\"CE\",\n            \"totalStudentsIntake\":100\n          \n        },\n        {\n            \"name\":\"ME\",\n            \"totalStudentsIntake\":100\n            \n        },\n        {\n            \"name\":\"EC\",\n            \"totalStudentsIntake\":100\n            \n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/batches",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-batches",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/batches",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"batches"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "attendances",
+			"item": [
+				{
+					"name": "create-attendance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student\":\"654b2a5162d56e02258f3077\",\n    \"date\":\"2023-11-06\",\n    \"isPresent\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/attendances",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attendances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-attendance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/attendances/65422f3e6cde338b2e09d829",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attendances",
+								"65422f3e6cde338b2e09d829"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-attendance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/attendances",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attendances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-student-attendance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/attendances/student/654b2a5162d56e02258f3077",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attendances",
+								"student",
+								"654b2a5162d56e02258f3077"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-attendance",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isPresent\":false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/attendances/654b2a5162d56e02258f3077",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attendances",
+								"654b2a5162d56e02258f3077"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-attendance",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/attendances/65422c84599a378d53c81919",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"attendances",
+								"65422c84599a378d53c81919"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "analytics",
+			"item": [
+				{
+					"name": "students-per-year/branch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/analytics/students",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"analytics",
+								"students"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "students-per-year/branch",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/analytics/students",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"analytics",
+										"students"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "367"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16f-il9muhyJZGviIh7nTQmbCGunyqE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Nov 2023 04:42:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"totalStudents\": 300,\n        \"year\": 2022,\n        \"branches\": {\n            \"CE\": 100,\n            \"ME\": 100,\n            \"EC\": 100\n        }\n    },\n    {\n        \"totalStudents\": 280,\n        \"year\": 2019,\n        \"branches\": {\n            \"CE\": 120,\n            \"ME\": 100,\n            \"EC\": 60\n        }\n    },\n    {\n        \"totalStudents\": 360,\n        \"year\": 2020,\n        \"branches\": {\n            \"CE\": 220,\n            \"ME\": 80,\n            \"EC\": 60\n        }\n    },\n    {\n        \"totalStudents\": 260,\n        \"year\": 2021,\n        \"branches\": {\n            \"CE\": 100,\n            \"ME\": 100,\n            \"EC\": 60\n        }\n    },\n    {\n        \"totalStudents\": 300,\n        \"year\": 2023,\n        \"branches\": {\n            \"CE\": 100,\n            \"ME\": 100,\n            \"EC\": 100\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "absent-students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/analytics/absent-students?specificDate=2023-11-07&batch=&semester=&branch=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"analytics",
+								"absent-students"
+							],
+							"query": [
+								{
+									"key": "specificDate",
+									"value": "2023-11-07"
+								},
+								{
+									"key": "batch",
+									"value": ""
+								},
+								{
+									"key": "semester",
+									"value": ""
+								},
+								{
+									"key": "branch",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "absent-students",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/analytics/absent-students?specificDate=2023-11-02&batch=&semester=&branch=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"analytics",
+										"absent-students"
+									],
+									"query": [
+										{
+											"key": "specificDate",
+											"value": "2023-11-02"
+										},
+										{
+											"key": "batch",
+											"value": ""
+										},
+										{
+											"key": "semester",
+											"value": ""
+										},
+										{
+											"key": "branch",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "424"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a8-2aaURKsLCcJpEQu+W3VsLXPPiQ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Nov 2023 04:42:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"studentInfo\": {\n            \"_id\": \"65433cfa3c2f2f86c19244d6\",\n            \"name\": \"stu1\",\n            \"phoneNumber\": 1234567890,\n            \"department\": \"ME\",\n            \"batch\": 2019,\n            \"currentSemester\": 6\n        }\n    },\n    {\n        \"studentInfo\": {\n            \"_id\": \"65433d0e3c2f2f86c19244ed\",\n            \"name\": \"stu3\",\n            \"phoneNumber\": 1234567890,\n            \"department\": \"EC\",\n            \"batch\": 2019,\n            \"currentSemester\": 6\n        }\n    },\n    {\n        \"studentInfo\": {\n            \"_id\": \"654374e408768943cb3bbdc3\",\n            \"name\": \"stu4\",\n            \"phoneNumber\": 1234567890,\n            \"department\": \"CE\",\n            \"batch\": 2020,\n            \"currentSemester\": 6\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "less-attendance-students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/analytics/attendance?specificDate=2023-11-07&batch=2020&semester=&branch=CE",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"analytics",
+								"attendance"
+							],
+							"query": [
+								{
+									"key": "specificDate",
+									"value": "2023-11-07"
+								},
+								{
+									"key": "batch",
+									"value": "2020"
+								},
+								{
+									"key": "semester",
+									"value": ""
+								},
+								{
+									"key": "branch",
+									"value": "CE"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "less-attendance-students",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/analytics/attendance?specificDate=2023-11-02&batch=&semester=&branch=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"analytics",
+										"attendance"
+									],
+									"query": [
+										{
+											"key": "specificDate",
+											"value": "2023-11-02"
+										},
+										{
+											"key": "batch",
+											"value": ""
+										},
+										{
+											"key": "semester",
+											"value": ""
+										},
+										{
+											"key": "branch",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "614"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"266-8MLvaaqmGIcHhUffw8/NfZ9RRzw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Nov 2023 04:43:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"presentDays\": 0,\n        \"totalDays\": 2,\n        \"attendancePercentage\": 0,\n        \"studentInfo\": {\n            \"_id\": \"65433d0e3c2f2f86c19244ed\",\n            \"name\": \"stu3\",\n            \"phoneNumber\": 1234567890,\n            \"department\": \"EC\",\n            \"batch\": 2019,\n            \"currentSemester\": 6,\n            \"__v\": 0\n        }\n    },\n    {\n        \"presentDays\": 0,\n        \"totalDays\": 1,\n        \"attendancePercentage\": 0,\n        \"studentInfo\": {\n            \"_id\": \"654374e408768943cb3bbdc3\",\n            \"name\": \"stu4\",\n            \"phoneNumber\": 1234567890,\n            \"department\": \"CE\",\n            \"batch\": 2020,\n            \"currentSemester\": 6,\n            \"__v\": 0\n        }\n    },\n    {\n        \"presentDays\": 1,\n        \"totalDays\": 2,\n        \"attendancePercentage\": 50,\n        \"studentInfo\": {\n            \"_id\": \"65433cfa3c2f2f86c19244d6\",\n            \"name\": \"stu1\",\n            \"phoneNumber\": 1234567890,\n            \"department\": \"ME\",\n            \"batch\": 2019,\n            \"currentSemester\": 6,\n            \"__v\": 0\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "vacant-seats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/analytics/seats?batch=&branch=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"analytics",
+								"seats"
+							],
+							"query": [
+								{
+									"key": "batch",
+									"value": ""
+								},
+								{
+									"key": "branch",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "vacant-seats",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/analytics/seats?batch=&branch=",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"analytics",
+										"seats"
+									],
+									"query": [
+										{
+											"key": "batch",
+											"value": ""
+										},
+										{
+											"key": "branch",
+											"value": ""
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1557"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"615-s8YgE3YQqluCuaILJdTPIxJuL8k\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 07 Nov 2023 04:43:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"totalStudents\": 0,\n        \"totalStudentsIntake\": 300,\n        \"availableIntake\": 300,\n        \"batch\": 2022,\n        \"branches\": {\n            \"CE\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            },\n            \"ME\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            },\n            \"EC\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            }\n        }\n    },\n    {\n        \"totalStudents\": 3,\n        \"totalStudentsIntake\": 280,\n        \"availableIntake\": 277,\n        \"batch\": 2019,\n        \"branches\": {\n            \"CE\": {\n                \"totalStudents\": 1,\n                \"totalStudentsIntake\": 120,\n                \"availableIntake\": 119\n            },\n            \"ME\": {\n                \"totalStudents\": 1,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 99\n            },\n            \"EC\": {\n                \"totalStudents\": 1,\n                \"totalStudentsIntake\": 60,\n                \"availableIntake\": 59\n            }\n        }\n    },\n    {\n        \"totalStudents\": 3,\n        \"totalStudentsIntake\": 360,\n        \"availableIntake\": 357,\n        \"batch\": 2020,\n        \"branches\": {\n            \"CE\": {\n                \"totalStudents\": 3,\n                \"totalStudentsIntake\": 220,\n                \"availableIntake\": 217\n            },\n            \"ME\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 80,\n                \"availableIntake\": 80\n            },\n            \"EC\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 60,\n                \"availableIntake\": 60\n            }\n        }\n    },\n    {\n        \"totalStudents\": 0,\n        \"totalStudentsIntake\": 260,\n        \"availableIntake\": 260,\n        \"batch\": 2021,\n        \"branches\": {\n            \"CE\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            },\n            \"ME\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            },\n            \"EC\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 60,\n                \"availableIntake\": 60\n            }\n        }\n    },\n    {\n        \"totalStudents\": 0,\n        \"totalStudentsIntake\": 300,\n        \"availableIntake\": 300,\n        \"batch\": 2023,\n        \"branches\": {\n            \"CE\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            },\n            \"ME\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            },\n            \"EC\": {\n                \"totalStudents\": 0,\n                \"totalStudentsIntake\": 100,\n                \"availableIntake\": 100\n            }\n        }\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
